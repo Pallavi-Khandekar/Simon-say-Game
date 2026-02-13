@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Simon Says Game</title>
+		<link rel="stylesheet" href="styel.css" />
+	</head>
+	<body>
+		<main class="wrapper">
+			<h1>Simon Says</h1>
+
+			<div class="board">
+				<div class="pad" id="green" data-color="green"></div>
+				<div class="pad" id="red" data-color="red"></div>
+				<div class="pad" id="yellow" data-color="yellow"></div>
+				<div class="pad" id="blue" data-color="blue"></div>
+			</div>
+
+			<div class="controls">
+				<div class="status">Level: <span id="level">--</span></div>
+			<div class="score">Score: <span id="score">--</span></div>
+				<button id="start">Start</button>
+				<button id="strict">Strict: OFF</button>
+				<div class="message" id="message">Click Start to play</div>
+			</div>
+    
+				<!-- Result modal -->
+				<div id="resultModal" class="modal hidden" role="dialog" aria-modal="true">
+					<div class="modal-content">
+						<h2 id="resultTitle">Result</h2>
+						<p id="resultText"></p>
+						<div class="modal-actions">
+							<button id="playAgain">Play Again</button>
+							<button id="closeModal">Close</button>
+						</div>
+					</div>
+				</div>
+		</main>
+
+		<script src="app.js"></script>
+	</body>
+</html>

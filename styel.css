@@ -1,0 +1,81 @@
+:root{
+	--size: 260px;
+	--gap: 12px;
+}
+*{box-sizing:border-box}
+body{
+	font-family:Segoe UI, Roboto, Arial, sans-serif;
+	background: radial-gradient(circle at 20% 10%, #1f2b4a 0%, #0b1020 60%);
+	color:#fff;
+	min-height:100vh;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin:0;
+}
+.wrapper{
+	text-align:center;
+	padding:20px;
+}
+h1{margin:0 0 18px 0;font-size:32px}
+.board{
+	width:var(--size);
+	height:var(--size);
+	display:grid;
+	grid-template-columns:1fr 1fr;
+	grid-template-rows:1fr 1fr;
+	gap:var(--gap);
+	margin:0 auto 16px auto;
+}
+.pad{
+	border-radius:18px;
+	box-shadow:inset 0 -6px rgba(0,0,0,0.2), 0 6px 18px rgba(0,0,0,0.6);
+	cursor:pointer;
+	transition:filter 120ms, transform 120ms;
+}
+.pad:active{transform:scale(.98)}
+#green{background:#1abc9c}
+#red{background:#e74c3c}
+#yellow{background:#f1c40f}
+#blue{background:#3498db}
+.pad.active{
+	filter:brightness(1.3) saturate(1.1);
+	box-shadow:0 8px 26px rgba(0,0,0,0.6);
+}
+.controls{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.status{font-weight:600}
+#score{font-weight:600}
+#start,#strict{padding:8px 12px;border-radius:6px;border:none;background:#222;color:#fff;cursor:pointer}
+#start:hover,#strict:hover{filter:brightness(1.06)}
+.message{width:100%;margin-top:8px;color:#ddd}
+@media (max-width:420px){:root{--size:220px}}
+
+/* Modal styles */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45)}
+.modal.hidden{display:none}
+.modal-content{background:#0f1724;color:#fff;padding:18px;border-radius:10px;min-width:280px;max-width:90%;text-align:center}
+.modal-actions{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.modal-actions button{padding:8px 12px;border-radius:6px;border:none;background:#222;color:#fff;cursor:pointer}
+.modal-actions button:hover{filter:brightness(1.06)}
+
+/* Flower shower (emoji-based) */
+.flower{
+	position:fixed;
+	top:-10vh;
+	pointer-events:none;
+	z-index:1200;
+	user-select:none;
+	animation-name:fall,sway;
+	animation-timing-function:linear,ease-in-out;
+	animation-iteration-count:1, infinite;
+	will-change:top,transform,opacity;
+	opacity:0.95;
+}
+@keyframes fall{
+	to{ top:110vh; opacity:0.95; }
+}
+@keyframes sway{
+	0%{ transform:translateX(0) rotate(0deg); }
+	50%{ transform:translateX(var(--swayX, 20px)) rotate(12deg); }
+	100%{ transform:translateX(0) rotate(0deg); }
+}
