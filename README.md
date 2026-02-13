@@ -13,3 +13,4 @@ Repeat the same sequence by clicking the colors
 Each level adds a new color to the pattern
 
 A wrong click ends the game
+url=> https://pallavi-khandekar.github.io/Simon-say-Game/
